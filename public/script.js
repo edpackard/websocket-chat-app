@@ -7,3 +7,7 @@ chat.addEventListener("submit", (event) => {
   socket.emit("chat", Input.value);
   Input.value = "";
 });
+
+socket.on("chat", (message) => {
+  console.log("From server: ", message);
+});

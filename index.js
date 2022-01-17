@@ -9,7 +9,9 @@ const path = require("path");
 app.use(express.static(path.join(__dirname + "/public")));
 
 io.on("connection", (socket) => {
-  console.log("Some client connected");
+  socket.on("chat", (message) => {
+    console.log("From client: ", message);
+  });
 });
 
 server.listen(port, () => {
